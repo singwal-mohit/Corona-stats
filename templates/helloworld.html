@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    .container{
+            margin-top: 10px;
+            margin-bottom: 18px;
+            border-radius: 10px;
+            box-shadow:5px 5px 5px 2px #564a4a;
+    }
+    #bgImg{
+            height: 100%;
+            background-image: url('https://th.bing.com/th/id/R25470c731dddbbe8af8aa5d6afce6db6?rik=i4tc653Z3%2b8hcA&riu=http%3a%2f%2fcdn.wallpapersafari.com%2f15%2f58%2f9y8Cui.jpg&ehk=WjURhkBTdxOyR4t2OkrR7VyvFXmguoPomCozoBPmpgU%3d&risl=&pid=ImgRaw');
+            background-size: cover;
+            background-repeat:no-repeat;
+        }
+    h5{
+        text-align:center;
+    }
+    .border{
+        margin:auto;
+        width: 70%;
+        padding: 10px 10px; 
+        border: 1px;
+    }
+    .bg-c-t{
+        background-color:#ffc93c;
+        box-shadow: 5px 5px 5px 2px #ffd56b;
+    }
+    .bg-c-r{
+        background-color:#007965;
+        box-shadow: 5px 5px 5px 2px #4aa96c;
+    }
+    .bg-c-c{
+        background-color:#CE1212;
+        box-shadow: 5px 5px 5px 2px #f55c47;
+    }
+    .bg-c-d{
+        background-color:#cdc7be;
+        box-shadow: 5px 5px 5px 2px #888888;
+    }
+    .bg-c-n{
+        background-color:#55b3b1;
+        box-shadow: 5px 5px 5px 2px #00adb5;
+    }
+    .bg-c-a{
+        background-color:#ffcc29;
+        box-shadow: 5px 5px 5px 2px #ffd56b;
+    }
+</style>
+
+<body  id="bgImg" style="background-color: black" >
+    <img src="https://www.health.pa.gov/banners/Mask-Banner-Inside-Pages2.jpg?width=1600&height=340" height="220" width="100%">
+
+    <h1 style="color: white;text-align: center;font-weight:800"><span style="color: red">COVID-19</span> WORLDWIDE DATA</h1>
+	
+    
+     <form style="margin-top: 80px;margin-bottom: 50px" method="post" class="d-flex justify-content-center align-items-center" action="">
+            {% csrf_token %}
+        <select class ="form-control" style="width: 200px" name="selectedcountry" required>
+            <option value="" selected disabled hidden>
+                Select a country
+            </option>
+            {% for country in mylist %}
+            <option>{{country}}</option>
+            {% endfor %}
+        
+        </select>
+        <input type="submit" class="btn btn-primary" name="">
+    </form>
+    <h1 style="color:white;text-align: center">{{selectedcountry}}</h1>
+   
+    <div class="d-flex row justify-content-evenly align-items-center">
+        <div class="container col-4" style="background-color: orange;height: 150px;width:250px">
+            <h1 style="text-align: center;margin-bottom:20px">{{total}}</h1>
+            <h5 class="border bg-c-t">Total</h5>
+        </div>
+        <div class="container col4" style="background-color: green;height: 150px;width:250px">
+            <h1 style="text-align: center;color: white">{{recovered}}</h1>
+            <h5 class="border bg-c-r" style="text-align: center;color: white">Recovered</h5>
+        </div>
+        <div class="container col-4" style="background-color: yellow;height: 150px;width:250px">
+            <h1 style="text-align: center;">{{active}}</h1>
+            <h5 class="border bg-c-a">Active</h5>
+        </div>
+      
+          
+    </div>
+    <div class="d-flex row justify-content-evenly align-items-center">
+        <div class="container col-4" style="background-color:skyblue ;height: 150px;width:250px">
+            <h1 style="text-align: center;">{{new}}</h1>
+            <h5 class="border bg-c-n">New</h5>
+        </div>
+        <div class="container col4" style="background-color:red ;height: 150px;width:250px">
+            <h1 style="text-align: center;color: white">{{critical}}</h1>
+            <h5 class="border bg-c-c" style="color: white">Critical</h5>
+        </div>
+        <div class="container col4" style="background-color: grey;height: 150px;width:250px">
+            <h1 style="text-align: center;color: white">{{deaths}}</h1>
+            <h5 class="border bg-c-d" style="color: white">Deaths</h5>
+        </div> 
+
+        
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+         <p style="  margin-top:20px; margin-bottom:5px;bottom: 20px;color:grey; text-align: center;">Copyright ©<span style="color: grey"> <i>Mohit Singwal</i></span></p>
+    </div>
+   
+
+</body>
+</html>
